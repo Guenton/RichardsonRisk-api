@@ -1,10 +1,11 @@
 const express = require("express");
 const loginAuth = express();
 
-loginAuth.get("/", (req, res) => {
-  const bearer = req.headers.authorization;
-  console.log(req);
-  res.send(bearer);
+loginAuth.post("/", (req, res) => {
+  const user = req.body;
+  user.username = req.user.sub;
+  console.log(user);
+  res.send("recieved");
 });
 
 module.exports = loginAuth;
