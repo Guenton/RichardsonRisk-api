@@ -1,0 +1,15 @@
+- Login Screen Work
+  - Make entry screen reactive @done
+  - Complete add users to mongodb @done
+  - Complete UPDATE user if already exists
+- Implement limited jwtAuthz routes on api
+
+Archive:
+- Check if userrights are sent to server in token @done
+-	a. check if userrights can be bound to rest api path with jwtAuthz @done
+-	b. check if frontend navigation can be limited with auth0 rights @done
+- Check how to manipulate auth0 rights from api/client @done
+- Create confirmation email for users (possibly obsolete) @done
+- Change api "example app" message @done
+- Update Heroku and Launch frontend @done
+- Create documentation page for frontend @done

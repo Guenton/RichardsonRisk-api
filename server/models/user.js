@@ -6,8 +6,7 @@ userSchema = new Schema({
   firstname: String,
   lastname: String,
   email: String,
-  isConfirmed: Boolean,
-  isAdmin: Boolean
+  isConfirmed: Boolean
 });
 
 module.exports = mongoose.model("User", userSchema);
