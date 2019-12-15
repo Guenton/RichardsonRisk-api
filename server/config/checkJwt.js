@@ -17,7 +17,7 @@ const checkJwt = jwt({
   }),
 
   // Validate the audience and the issuer.
-  audience: "http://localhost:3003",
+  audience: process.env.AUTH0_AUDIENCE || "http://localhost:3003",
   issuer: "https://sibox-mobox.auth0.com/",
   algorithms: ["RS256"]
 });
