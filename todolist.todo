@@ -1,10 +1,11 @@
-- Login Screen Work
-  - Make entry screen reactive @done
-  - Complete add users to mongodb @done
-  - Complete UPDATE user if already exists
 - Implement limited jwtAuthz routes on api
 
 Archive:
+- change connection to cloudDB @done
+- Login Screen Work @done
+  - Make entry screen reactive @done
+  - Complete add users to mongodb @done
+  - Complete UPDATE user if already exists @done
 - Check if userrights are sent to server in token @done
 -	a. check if userrights can be bound to rest api path with jwtAuthz @done
 -	b. check if frontend navigation can be limited with auth0 rights @done

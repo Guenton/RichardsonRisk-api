@@ -12,9 +12,13 @@ loginAuth.post("/", async (req, res) => {
   const userObj = req.body;
   userObj.username = req.user.sub;
   userObj.isConfirmed = false;
-  const user = new User(userObj);
   try {
-    const result = await user.save();
+    const id = await User.findOne({ username: req.user.sub }).select("id");
+    if (id) await User.findByIdAndUpdate(id, userObj);
+    else {
+      const newUser = new User(userObj);
+      await newUser.save();
+    }
     res.status(201).send("recieved");
   } catch (err) {
     errhandler(err);
@@ -22,9 +26,8 @@ loginAuth.post("/", async (req, res) => {
 });
 
 loginAuth.get("/", async (req, res) => {
-  const usernameObj = { username: req.user.sub };
   try {
-    const result = await User.findOne(usernameObj);
+    const result = await User.findOne({ username: req.user.sub });
     res.status(200).json(result);
   } catch (err) {
     errhandler(err);

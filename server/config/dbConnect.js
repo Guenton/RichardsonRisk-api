@@ -3,7 +3,11 @@ const mongooseUri = process.env.MONGOOSE_URI || "mongodb://localhost:27017/richa
 
 const dbConnect = async () => {
   try {
-    await mongoose.connect(mongooseUri, { useNewUrlParser: true, useUnifiedTopology: true });
+    await mongoose.connect(mongooseUri, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      useFindAndModify: false
+    });
     console.log(`Mongoose connected to: ${mongooseUri}`);
   } catch (err) {
     console.error(err);
