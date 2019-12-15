@@ -6,7 +6,7 @@ const checkJwt = require("./config/checkJwt");
 const routes = require("./routes");
 const dbConnect = require("./config/dbConnect");
 const app = express();
-const port = process.env.SERVER_PORT || 3003;
+const port = process.env.PORT || 3003;
 
 // Database
 dbConnect();
