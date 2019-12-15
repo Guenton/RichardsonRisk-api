@@ -6,8 +6,8 @@
   "scripts": {
     "dev": "cross-env NODE_ENV=development nodemon server/index.js --watch server",
     "serve": "cross-env NODE_ENV=production node server/index.js",
-    "lint": "eslint --fix --ext .js, --ignore-path .gitignore .",
-    "heroku-postbuild": "yarn serve"
+    "start": "node server/index.js",
+    "lint": "eslint --fix --ext .js, --ignore-path .gitignore ."
   },
   "engines": {
     "node": "12.13.1",
