@@ -5,7 +5,7 @@ const dbConnect = async () => {
   try {
     await mongoose.connect(mongooseUri, {
       useNewUrlParser: true,
-      useUnifiedTopology: true,
+      // useUnifiedTopology: true,
       useFindAndModify: false
     });
     console.log(`Mongoose connected to: ${mongooseUri}`);
