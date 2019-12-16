@@ -26,7 +26,7 @@ loginAuth.post("/", async (req, res) => {
 });
 
 loginAuth.get("/", async (req, res) => {
-  console.log("Get Handler was accessed");
+  console.log("Get Handler was accessed!");
   try {
     const result = await User.findOne({ username: req.user.sub });
     console.log(result);
