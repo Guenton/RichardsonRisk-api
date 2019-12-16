@@ -9,6 +9,7 @@ const errhandler = err => {
 };
 
 loginAuth.post("/", async (req, res) => {
+  console.log("Post Handler was Accessed");
   const userObj = req.body;
   userObj.username = req.user.sub;
   userObj.isConfirmed = false;
@@ -26,6 +27,7 @@ loginAuth.post("/", async (req, res) => {
 });
 
 loginAuth.get("/", async (req, res) => {
+  console.log("Get Handler was accessed");
   try {
     const result = await User.findOne({ username: req.user.sub });
     res.status(200).json(result);
