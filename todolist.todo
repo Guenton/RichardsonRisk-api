@@ -1,7 +1,12 @@
-- Deploy to Heroku
-- Implement limited jwtAuthz routes on api
+
 
 Archive:
+- Implement limited jwtAuthz routes on api - trash, doing it manually @done
+- Subsidiary Work @done
+  - Create Model for Subsidiaries @done
+  - Create Add Sub to DB @done
+  - Create Request Subs from DB @done
+- Deploy to Heroku @done
 - change connection to cloudDB @done
 - Login Screen Work @done
   - Make entry screen reactive @done

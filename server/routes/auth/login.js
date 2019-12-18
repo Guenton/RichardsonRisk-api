@@ -1,13 +1,9 @@
 const express = require("express");
 const loginAuth = express();
+const errHandler = require("../../config/errHandler");
 const User = require("../../models/user");
 
-// Response on catch errors
-const errhandler = err => {
-  console.error(err);
-  res.status(500).send("A Server error has occured");
-};
-
+// Store New user into DB or Update existing user
 loginAuth.post("/", async (req, res) => {
   const userObj = req.body;
   userObj.username = req.user.sub;
@@ -21,17 +17,18 @@ loginAuth.post("/", async (req, res) => {
     }
     res.status(201).send("recieved");
   } catch (err) {
-    errhandler(err);
+    errHandler(err, res);
   }
 });
 
+// Get User Information from db uses deoded bearer info.
 loginAuth.get("/", async (req, res) => {
   try {
     const result = await User.findOne({ username: req.user.sub });
     res.status(200).json(result);
   } catch (err) {
     console.log(err);
-    errhandler(err);
+    errHandler(err, res);
   }
 });
 
