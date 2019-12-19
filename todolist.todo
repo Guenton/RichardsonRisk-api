@@ -1,9 +1,9 @@
-- Buildings work
-  - Create Buildings Model
-  - Create Buildings API
-  - Create full CRUD for Buildings API
 
 Archive:
+- Buildings work @done
+  - Create Buildings Model @done
+  - Create Buildings API @done
+  - Create full CRUD for Buildings API @done
 - Implement limited jwtAuthz routes on api - trash, doing it manually @done
 - Subsidiary Work @done
   - Create Model for Subsidiaries @done
