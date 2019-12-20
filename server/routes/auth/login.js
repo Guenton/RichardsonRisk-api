@@ -7,7 +7,7 @@ const User = require("../../models/user");
 loginAuth.post("/", async (req, res) => {
   const userObj = req.body;
   userObj.username = req.user.sub;
-  userObj.isConfirmed = false;
+  userObj.isConfirmed = true;
   try {
     const id = await User.findOne({ username: req.user.sub }).select("id");
     if (id) await User.findByIdAndUpdate(id, userObj);

@@ -27,13 +27,9 @@ assessmentApi.get("/", async (req, res) => {
 assessmentApi.post("/", async (req, res) => {
   if (req.user.permissions.includes("create:assessments")) {
     try {
-      const id = await Assessment.findOne({ shorthand: req.body.name }).select("id");
-      if (id) res.status(409).send("This assessment Already Exists");
-      else {
-        const newAssessment = new Assessment(req.body);
-        await newAssessment.save();
-        res.status(201).send("Received and Stored");
-      }
+      const newAssessment = new Assessment(req.body);
+      await newAssessment.save();
+      res.status(201).send("Received and Stored");
     } catch (err) {
       errHandler(err, res);
     }
@@ -42,6 +38,7 @@ assessmentApi.post("/", async (req, res) => {
 
 assessmentApi.put("/", async (req, res) => {
   if (req.user.permissions.includes("update:assessments")) {
+    req.body.dateUpdated = new Date(Date.now());
     try {
       await Assessment.findByIdAndUpdate(req.body._id, req.body);
       res.status(200).send("Received and Stored");
